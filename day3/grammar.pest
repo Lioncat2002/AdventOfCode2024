@@ -1,0 +1,7 @@
+number  = { ASCII_DIGIT+ }
+identifier   = { "do()" | "don't()" }
+call    = { number ~ "," ~ number }
+//part 1
+mul     = _{ (!"mul" ~ ANY)* ~ "mul(" ~ call ~ ")" }
+expr    = _{ (mul ~ (!mul ~ ANY)*)* }
+part1_program = { expr }
